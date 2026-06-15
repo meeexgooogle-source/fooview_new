@@ -39,6 +39,8 @@ Viele Funktionen von fooView sind mächtig, aber schwer zu finden. In "Alles." w
 ## 4. Tech-Stack & Architektur
 
 ### 4.1 Android
+*   **Einstellungen UI:** Vollbild-Ansicht mit Reitern (Tabs) für eine klare Trennung der Kategorien (z.B. Allgemein, Module, Interaktion, Claude, System). Dies ermöglicht eine desktopähnliche Benutzererfahrung für die Konfiguration, während die App im aktiven Betrieb auf den minimalistischen "ALLES PUNKT" reduziert bleibt.
+
 *   **Sprache:** Kotlin / Java (für Legacy-Kompatibilität mit fooView-Architektur).
 *   **Kern:** `AccessibilityService` + `MediaProjection` (für Screen Capture).
 *   **UI:** Jetpack Compose für die ArbeitsBOX-Module (flexibel & performant).
@@ -46,6 +48,8 @@ Viele Funktionen von fooView sind mächtig, aber schwer zu finden. In "Alles." w
 *   **Kommunikation:** Shizuku für Root-Funktionen ohne echten Root.
 
 ### 4.2 Windows / Linux (Desktop)
+*   **Einstellungen UI:** Ebenfalls Vollbild mit Reitern, um Konsistenz über die Plattformen hinweg zu gewährleisten und eine umfassende Konfiguration zu ermöglichen.
+
 *   **Framework:** **Electron** oder **Tauri** (Tauri bevorzugt wegen Performance und nativer Systemnähe).
 *   **Sprache:** Rust (Backend) + React/TypeScript (Frontend).
 *   **Overlay-Technik:** Transparent Borderless Windows mit `always-on-top` Flag.
@@ -84,3 +88,15 @@ Viele Funktionen von fooView sind mächtig, aber schwer zu finden. In "Alles." w
 
 ## 7. Logo & Design-Integration
 Das Logo (basierend auf der Cyberpunk-Ästhetik) wird als zentraler Ankerpunkt im "ALLES PUNKT" verwendet. Bei Interaktion pulsiert es in Cyan und Magenta und zerfällt in die einzelnen Funktionsmodule der ArbeitsBOX.
+
+### 4.1.1 Informationsarchitektur der Einstellungen (Android & Desktop)
+Um eine übersichtliche und intuitive Konfiguration zu gewährleisten, wird das Vollbild-Einstellungsfenster in logische Reiter (Tabs) unterteilt. Diese Struktur ermöglicht es dem Benutzer, schnell zu den gewünschten Einstellungen zu navigieren und die Komplexität der App effektiv zu verwalten.
+
+| Reiter (Tab) | Beschreibung | Wichtige Einstellungsbereiche |
+| :------------ | :------------ | :----------------------------- |
+| **Allgemein** | Grundlegende App-Einstellungen, Erscheinungsbild und Verhaltensweisen. | Sprache, Design (Cyberpunk-Farben), Startverhalten, Benachrichtigungen, Backup & Wiederherstellung. |
+| **Module** | Verwaltung der ArbeitsBOX-Module und deren Funktionen. | Aktivierung/Deaktivierung von Modulen (OCR, Dateimanager, etc.), Modul-spezifische Einstellungen, Import/Export von Modul-Konfigurationen. |
+| **Interaktion** | Konfiguration des transparenten Interaktions-Layers und der Gestensteuerung. | Gesten-Definition (Wischen, Long Press, Force Touch), Maus-Interaktionen (Desktop), Feedback-Optionen (Haptik, Sound). |
+| **Claude** | Einstellungen für die integrierte Sprachassistenz. | Sprachmodell-Auswahl, Aktivierungswort, Sprachausgabe (TTS), Datenschutz & Datenverarbeitung, API-Schlüssel-Verwaltung. |
+| **System** | Erweiterte Systemintegrationen und Berechtigungen. | Accessibility Service-Einstellungen, Overlay-Berechtigungen, Root/Shizuku-Integration, Benachrichtigungszugriff, Energieoptimierung. |
+| **Profil & Sync** | Benutzerprofil, Cloud-Synchronisation und Lizenzverwaltung. | Anmeldeinformationen, Synchronisations-Einstellungen (ArbeitsBOX-Layouts, Module), Lizenzstatus, Abonnements. |
